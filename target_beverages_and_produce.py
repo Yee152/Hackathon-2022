@@ -1,6 +1,6 @@
 import requests
 import pandas as pd
-
+import openpyxl
 
 cookies = {
     'TealeafAkaSid': '_D40b8P9bwjz1NGBYurAQiT0X1ZM_ey7',
@@ -64,7 +64,7 @@ params = {
 response = requests.get('https://redsky.target.com/redsky_aggregations/v1/web/plp_search_v2', params=params, cookies=cookies, headers=headers)
 
 # check status code
-print(response)
+#print(response)
     # 200 is correct htp request
 
 # create Json Object
@@ -93,8 +93,9 @@ beverage_dictionary = {"beverage": title_target, "price": price_target}
 
 # pandas dataframe
 target_df_beverages = pd.DataFrame({"item": title_target, "price": price_target})
+target_df_beverages["category"] = "Beverages"
 target_df_beverages["store"] = "Target"
-print(target_df_beverages)
+#print(target_df_beverages)
 
 cookies = {
     'TealeafAkaSid': '_D40b8P9bwjz1NGBYurAQiT0X1ZM_ey7',
@@ -187,5 +188,13 @@ dictionary_of_all_stores = {"target": target}
 
 # pandas dataframe
 target_df_produce = pd.DataFrame({"item": title_produce, "price": price_produce})
+target_df_produce["category"] = "Produce"
 target_df_produce["store"] = "Target"
-print(target_df_produce)
+
+
+# combine data frames
+frames = [target_df_beverages, target_df_produce]
+
+target_df = pd.concat(frames)
+
+target_df.to_excel('target_multiple_pages.xlsx', index = False)
