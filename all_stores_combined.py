@@ -319,10 +319,6 @@ headers = {
 
 response_c = requests.get('https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=4299198628805&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_5_3&storeid=3132&featured=true&search-uid=uid%253D7415811368740%253Av%253D12.0%253Ats%253D1665292796022%253Ahc%253D32&q=&sort=&userid=&featuredsessionid=&screenwidth=1065&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway&variant=EOT_1660_true', cookies=cookies, headers=headers)
 
-
-# check status code
-print(response_c)
-
 # store json file
 result_json_c = response_c.json()
 
@@ -422,7 +418,6 @@ safeway_df_produce = pd.DataFrame({"item": item_produce, "price": price_produce}
 safeway_df_produce["category"] = "Produce"
 safeway_df_produce["store"] = "Safeway"
 
-print(safeway_df_produce)
 
 #---DAIRY
 cookies = {
@@ -485,9 +480,7 @@ headers = {
 
 response = requests.get('https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3024759218040&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_11_4&storeid=3132&featured=true&search-uid=uid%253D7415811368740%253Av%253D12.0%253Ats%253D1665292796022%253Ahc%253D18&q=&sort=&userid=&featuredsessionid=&screenwidth=987&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway&variant=EOT_1660_true', cookies=cookies, headers=headers)
 
-# check status code
-print(response)
-    # 200 is correct htp request
+
 
 # store json file
 result_json = response.json()
@@ -506,8 +499,6 @@ for result in result_items:
 safeway_df_dairy = pd.DataFrame({"item": item_dairy, "price": price_dairy})
 safeway_df_dairy["category"] = "Dairy"
 safeway_df_dairy["store"] = "Safeway"
-
-print(safeway_df_dairy)
 
 # combine data frames
 frames = [safeway_df_beverages, safeway_df_produce, safeway_df_dairy]
@@ -578,10 +569,6 @@ params = {
 }
 
 response = requests.get('https://redsky.target.com/redsky_aggregations/v1/web/plp_search_v2', params=params, cookies=cookies, headers=headers)
-
-# check status code
-#print(response)
-    # 200 is correct htp request
 
 # create Json Object
 response.json()
