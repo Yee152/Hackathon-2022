@@ -270,16 +270,16 @@ for result in result_items:
     # price
     price_milk.append(result["price"]["formatted_current_price"])
 
-target_df_milk = pd.DataFrame({"item": title_milk, "price": price_milk})
-target_df_milk["category"] = "Dairy"
-target_df_milk["store"] = "Target"
+target_df_dairy = pd.DataFrame({"item": title_milk, "price": price_milk})
+target_df_dairy["category"] = "Dairy"
+target_df_dairy["store"] = "Target"
 
 
 
 # combine data frames
-frames = [target_df_beverages, target_df_produce, target_df_milk]
+frames = [target_df_beverages, target_df_produce, target_df_dairy]
 
 target_df = pd.concat(frames)
 
-target_df.to_excel('target_multiple_pages.xlsx', index = False)
+target_df.to_excel('target_data.xlsx', index = False)
 
