@@ -276,7 +276,7 @@ target_df_milk["store"] = "Target"
 
 
 
-# combine data frames
+# combin data frames
 frames = [target_df_beverages, target_df_produce, target_df_milk]
 
 target_df = pd.concat(frames)
