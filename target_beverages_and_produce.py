@@ -186,7 +186,7 @@ target = [produce_dictionary, beverage_dictionary ]
 dictionary_of_all_stores = {"target": target}
 
 
-# pandas dataframe
+# pandas datafram
 target_df_produce = pd.DataFrame({"item": title_produce, "price": price_produce})
 target_df_produce["category"] = "Produce"
 target_df_produce["store"] = "Target"
