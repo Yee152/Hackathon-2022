@@ -338,7 +338,7 @@ for result in result_items:
 
 # pandas dataframe
 safeway_df_beverages = pd.DataFrame({"item": item_coffee, "price": price_coffee})
-safeway_df_beverages["category"] = "Coffee"
+safeway_df_beverages["category"] = "Beverage"
 safeway_df_beverages["store"] = "Safeway"
 
 
@@ -609,7 +609,7 @@ beverage_dictionary = {"beverage": title_target, "price": price_target}
 
 # pandas dataframe
 target_df_beverages = pd.DataFrame({"item": title_target, "price": price_target})
-target_df_beverages["category"] = "Coffee"
+target_df_beverages["category"] = "Beverage"
 target_df_beverages["store"] = "Target"
 
 #PRODUCE--------------------------------------------------------------
